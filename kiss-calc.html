@@ -9,6 +9,7 @@
        function doCalc(pFormula, pShowTo) {
           var display = ( document.getElementById(pShowTo) ) ? (document.getElementById(pShowTo)) : undefined;
           var result  = 'nothing yet'; 
+	  // this is where it all happens - no point doing calcs yourself when its all baked into javascript
           try {
               result = eval(pFormula); 
           } catch (e) {
@@ -16,6 +17,7 @@
                  result = 'incomplete or erroneous calc'; 
               }
           }
+	  // and done - display the result
           if ( display !== 'undefined' ) display.innerHTML = result;
        }
     </script>
