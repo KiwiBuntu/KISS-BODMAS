@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+  <head>
+    <meta charset="utf-8">
+    <title>KISS | BODMAS Calculator</title>
+
+    <script language='javascript'>
+       function doCalc(pFormula, pShowTo) {
+          var display = ( document.getElementById(pShowTo) ) ? (document.getElementById(pShowTo)) : undefined;
+          var result  = 'nothing yet'; 
+          try {
+              result = eval(pFormula); 
+          } catch (e) {
+              if (e instanceof SyntaxError) {
+                 result = 'incomplete or erroneous calc'; 
+              }
+          }
+          if ( display !== 'undefined' ) display.innerHTML = result;
+       }
+    </script>
+  </head>
+
+  <body>
+  <h1> Stupidly simple BODMAS calculator </h1>
+  
+  <label for='fld_input'>Enter your formula here</label>
+  <input id='fld_input' onKeyUp='javascript:doCalc(this.value, "val_input");'>
+
+  <span> = <span>
+  <span id='val_input'></span>
+
+  </body>
+</html>
